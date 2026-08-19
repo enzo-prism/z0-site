@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Z0 website
 
-Public Next.js 16 marketing site for **Z0**. Visual lockup is lowercase **z** + a taller slashed **0**. Homepage is icon-and-motion first. `main` is production (Vercel).
+Public Next.js 16 marketing site for **Z0**. Visual lockup is lowercase **z** + a taller slashed **0**. Homepage is sparse, text-light, and action-first. `main` is production (Vercel).
 
 Read `README.md` and `docs/cursor-cloud.md` before changing brand or deploy flow.
 

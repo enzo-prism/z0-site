@@ -22,7 +22,7 @@ export default function ReleaseNotesPage() {
           Z0 {site.version}
         </h1>
         <p className="max-w-xl text-sm leading-6 text-muted-foreground">
-          Z0 prepares reversible settings and opens official Technic. You select Tekkit 2 and press Play there. Z0 never launches Minecraft.
+          Z0 prepares reversible settings and opens official Technic. You select Tekkit 2 and press Play there. Z0 0.1.2 does not launch Minecraft; independent direct launch remains disabled pending AppID approval.
         </p>
       </header>
 

@@ -19,8 +19,14 @@ export const site = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
   version: release.version,
+  build: release.build,
   bundleId: "app.z0.companion",
   technicUrl: "https://www.technicpack.net/download",
+  rosettaUrl: "https://support.apple.com/en-us/102527",
+  zuluUrl:
+    "https://www.azul.com/downloads/?version=java-8-lts&os=macos&architecture=arm-64-bit&package=jdk",
+  supportIssueUrl:
+    "https://github.com/enzo-prism/z0-site/issues/new?template=z0-support.yml",
   download: {
     href: `/downloads/${release.filename}`,
     checksumHref: `/downloads/${release.checksumFilename}`,
@@ -29,6 +35,10 @@ export const site = {
     platform: "macOS 14+ · Apple Silicon",
     size: formatBytes(release.bytes),
     sha256: release.sha256,
+    minimumSystemVersion: release.minimumSystemVersion,
+    architecture: release.architecture,
+    teamIdentifier: release.teamIdentifier,
+    notarization: release.notarization,
   },
 } as const;
 

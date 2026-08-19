@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+/.release-import.lock
 
 # debug
 npm-debug.log*

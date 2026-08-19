@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Install Z0
+    url: https://z0-site.vercel.app/install
+    about: Follow the four clean installation steps first.
+  - name: Private security report
+    url: https://github.com/enzo-prism/z0-site/security/policy
+    about: Read the private-reporting instructions. Never disclose sensitive details publicly.

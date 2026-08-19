@@ -6,6 +6,7 @@ Marketing site for **Z0**, a macOS companion for official Technic + Tekkit 2.
 - Light / dark via `next-themes`
 - Manifest-verified notarized ZIP at `/downloads/Z0-0.1.0-arm64-notarized.zip`
 - Matching checksum at `/downloads/Z0-0.1.0-arm64-notarized.sha256`
+- User-triggered update record at `/releases/latest.json`
 
 Production: [z0-site.vercel.app](https://z0-site.vercel.app)  
 Repo: [enzo-prism/z0-site](https://github.com/enzo-prism/z0-site) (`main` is production)
@@ -31,6 +32,7 @@ The homepage is icon-and-motion first. Visible copy stays in `sr-only` headings,
 | Home stage | `components/home-view.tsx` |
 | Download | `components/download-orb.tsx`, `lib/site.ts` |
 | Release integrity | `lib/download-release.json`, `scripts/verify-download.mjs` |
+| Update channel | `public/releases/latest.json`, `docs/update-channel.md` |
 
 The Mac app wordmark is the same lockup in `Apps/Z0/PixelText.swift` (`Z0Wordmark`) in the product repo.
 
@@ -44,8 +46,9 @@ pnpm dev
 ```
 
 `cloud-check.sh` fails closed unless the release manifest, notarized ZIP,
-checksum sidecar, byte count, digest, and app-bundle ZIP layout all agree. A
-released filename is immutable and must never be overwritten with new bytes.
+checksum sidecar, update record, byte count, digest, provenance, notarization,
+and app-bundle ZIP layout all agree. A released filename is immutable and must
+never be overwritten with new bytes.
 
 ## Develop
 

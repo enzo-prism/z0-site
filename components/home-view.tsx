@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 
 export function HomeView() {
   return (
-    <main className="relative flex min-h-0 flex-1 flex-col overflow-x-clip">
+    <main id="main-content" className="relative flex min-h-0 flex-1 flex-col overflow-x-clip">
       <AmbientStage />
       <section className="home-stage safe-px relative flex flex-1 flex-col items-center justify-center">
         <h1 className="sr-only">{site.name} — {site.tagline}</h1>

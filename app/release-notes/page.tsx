@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function ReleaseNotesPage() {
   return (
-    <main className="safe-px mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 py-12 pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] sm:py-16">
+    <main id="main-content" className="safe-px mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 py-12 pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] sm:py-16">
       <PixelWordmark pixel={5} className="[--cell:5px]" />
 
       <header className="space-y-3">
         <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-          Stage 1 · macOS
+          Stage 1 · macOS · build {site.build}
         </p>
         <h1 className="text-3xl font-semibold tracking-tight text-balance">
           Z0 {site.version}
@@ -34,6 +34,13 @@ export default function ReleaseNotesPage() {
           <li>Opens official Technic and watches startup while you press Play.</li>
           <li>Keeps worlds separate from settings recovery and creates redacted local diagnostics.</li>
         </ul>
+      </section>
+
+      <section aria-labelledby="boundary-title" className="space-y-3">
+        <h2 id="boundary-title" className="text-lg font-semibold">Stage 1 boundary</h2>
+        <p className="text-sm leading-6 text-muted-foreground">
+          Z0 does not install Technic or Tekkit, download Minecraft, sign in to Microsoft, or launch the game. It prepares reversible settings and opens official Technic. You select Tekkit 2 and press Play there.
+        </p>
       </section>
 
       <section aria-labelledby="requirements-title" className="space-y-3">

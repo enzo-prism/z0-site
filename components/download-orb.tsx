@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, DownloadIcon } from "lucide-react";
+import { DownloadIcon } from "lucide-react";
 import Link from "next/link";
 
 import { requirements, site } from "@/lib/site";
@@ -38,18 +38,17 @@ export function DownloadOrb() {
         aria-label="Download details"
         className="flex min-h-11 flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
       >
+        <Link className="release-link" href="/install">
+          Install
+        </Link>
+        <span aria-hidden="true">·</span>
+        <Link className="release-link" href="/help">
+          Help
+        </Link>
+        <span aria-hidden="true">·</span>
         <Link className="release-link" href="/release-notes">
           Release notes
         </Link>
-        <span aria-hidden="true">·</span>
-        <a className="release-link" href={site.download.checksumHref}>
-          SHA-256
-        </a>
-        <span aria-hidden="true">·</span>
-        <a className="release-link inline-flex items-center gap-1" href={site.technicUrl} rel="noreferrer">
-          Official Technic
-          <ArrowUpRightIcon aria-hidden="true" className="size-3" />
-        </a>
       </nav>
 
       <details className="requirements w-full border-t border-border/60 pt-3 text-left">

@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "..");
 const manifestPath = join(repositoryRoot, "lib", "download-release.json");
+const latestPath = join(repositoryRoot, "public", "releases", "latest.json");
 const downloadsDirectory = join(repositoryRoot, "public", "downloads");
 
 function fail(message) {
@@ -21,9 +22,45 @@ function requireString(value, field) {
   return value;
 }
 
+function requirePositiveInteger(value, field) {
+  if (!Number.isSafeInteger(value) || value <= 0) {
+    fail(`${field} must be a positive safe integer`);
+  }
+  return value;
+}
+
+function requireObject(value, field) {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) {
+    fail(`${field} must be an object`);
+  }
+  return value;
+}
+
 function validateManifest(rawManifest) {
   const manifest = JSON.parse(rawManifest);
+  if (manifest.schemaVersion !== 1) {
+    fail("manifest schemaVersion must be 1");
+  }
   const version = requireString(manifest.version, "version");
+  const build = requirePositiveInteger(manifest.build, "manifest build");
+  const releasedAt = requireString(manifest.releasedAt, "releasedAt");
+  const productSourceCommit = requireString(
+    manifest.productSourceCommit,
+    "productSourceCommit",
+  );
+  const bundleIdentifier = requireString(
+    manifest.bundleIdentifier,
+    "bundleIdentifier",
+  );
+  const teamIdentifier = requireString(
+    manifest.teamIdentifier,
+    "teamIdentifier",
+  );
+  const minimumSystemVersion = requireString(
+    manifest.minimumSystemVersion,
+    "minimumSystemVersion",
+  );
+  const architecture = requireString(manifest.architecture, "architecture");
   const filename = requireString(manifest.filename, "filename");
   const checksumFilename = requireString(
     manifest.checksumFilename,
@@ -33,6 +70,25 @@ function validateManifest(rawManifest) {
 
   if (!/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(version)) {
     fail("manifest version is not a supported semantic version");
+  }
+  const releaseDate = new Date(releasedAt);
+  if (Number.isNaN(releaseDate.valueOf()) || releaseDate.toISOString() !== releasedAt) {
+    fail("manifest releasedAt must be a canonical ISO-8601 UTC timestamp");
+  }
+  if (!/^[0-9a-f]{40}$/.test(productSourceCommit)) {
+    fail("manifest productSourceCommit must be a full lowercase Git commit");
+  }
+  if (bundleIdentifier !== "app.z0.companion") {
+    fail("manifest bundleIdentifier must be app.z0.companion");
+  }
+  if (!/^[A-Z0-9]{10}$/.test(teamIdentifier)) {
+    fail("manifest teamIdentifier must be a 10-character Apple team ID");
+  }
+  if (!/^\d+\.\d+(?:\.\d+)?$/.test(minimumSystemVersion)) {
+    fail("manifest minimumSystemVersion is invalid");
+  }
+  if (architecture !== "arm64") {
+    fail("manifest architecture must be arm64");
   }
   if (filename !== `Z0-${version}-arm64-notarized.zip`) {
     fail(
@@ -47,14 +103,83 @@ function validateManifest(rawManifest) {
   if (/unsigned-not-for-distribution/i.test(filename + checksumFilename)) {
     fail("distribution filenames contain the forbidden unsigned marker");
   }
-  if (!Number.isSafeInteger(manifest.bytes) || manifest.bytes <= 0) {
-    fail("manifest bytes must be a positive safe integer");
-  }
+  requirePositiveInteger(manifest.bytes, "manifest bytes");
   if (!/^[0-9a-f]{64}$/.test(sha256)) {
     fail("manifest sha256 must be 64 lowercase hexadecimal characters");
   }
 
-  return { ...manifest, version, filename, checksumFilename, sha256 };
+  const notarization = requireObject(manifest.notarization, "manifest notarization");
+  if (notarization.status !== "accepted") {
+    fail("manifest notarization status must be accepted");
+  }
+  if (
+    typeof notarization.submissionId !== "string" ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(
+      notarization.submissionId,
+    )
+  ) {
+    fail("manifest notarization submissionId must be a lowercase UUID");
+  }
+  if (notarization.stapled !== true) {
+    fail("manifest notarization stapled must be true");
+  }
+
+  return {
+    ...manifest,
+    version,
+    build,
+    releasedAt,
+    productSourceCommit,
+    bundleIdentifier,
+    teamIdentifier,
+    minimumSystemVersion,
+    architecture,
+    filename,
+    checksumFilename,
+    sha256,
+    notarization,
+  };
+}
+
+function validateLatest(rawLatest, manifest) {
+  const latest = JSON.parse(rawLatest);
+  if (latest.schemaVersion !== 1) {
+    fail("latest.json schemaVersion must be 1");
+  }
+
+  const mirroredFields = [
+    "version",
+    "build",
+    "releasedAt",
+    "productSourceCommit",
+    "filename",
+    "checksumFilename",
+    "bytes",
+    "sha256",
+    "bundleIdentifier",
+    "teamIdentifier",
+    "minimumSystemVersion",
+    "architecture",
+  ];
+  for (const field of mirroredFields) {
+    if (latest[field] !== manifest[field]) {
+      fail(`latest.json ${field} does not match the release manifest`);
+    }
+  }
+
+  if (JSON.stringify(latest.notarization) !== JSON.stringify(manifest.notarization)) {
+    fail("latest.json notarization does not match the release manifest");
+  }
+
+  const expectedDownloadURL = `https://z0-site.vercel.app/downloads/${manifest.filename}`;
+  if (latest.downloadURL !== expectedDownloadURL) {
+    fail(`latest.json downloadURL must be ${expectedDownloadURL}`);
+  }
+  if (latest.releaseNotesURL !== "https://z0-site.vercel.app/release-notes") {
+    fail("latest.json releaseNotesURL must use the production release-notes page");
+  }
+
+  return latest;
 }
 
 function findEndOfCentralDirectory(archive) {
@@ -158,6 +283,7 @@ function validateAppBundle(entries) {
 
 async function main() {
   const manifest = validateManifest(await readFile(manifestPath, "utf8"));
+  validateLatest(await readFile(latestPath, "utf8"), manifest);
   const archivePath = join(downloadsDirectory, manifest.filename);
   const checksumPath = join(downloadsDirectory, manifest.checksumFilename);
   const archive = await readFile(archivePath);
@@ -184,7 +310,7 @@ async function main() {
 
   validateAppBundle(zipEntries(archive));
   console.log(
-    `Verified ${manifest.filename}: ${manifest.bytes} bytes, SHA-256 ${manifest.sha256}`,
+    `Verified ${manifest.filename} and latest.json: ${manifest.bytes} bytes, SHA-256 ${manifest.sha256}`,
   );
 }
 

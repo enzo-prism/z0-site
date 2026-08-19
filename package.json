@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "verify:download": "node scripts/verify-download.mjs"
+    "verify:download": "node scripts/verify-download.mjs",
+    "release:import": "node scripts/import-release.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

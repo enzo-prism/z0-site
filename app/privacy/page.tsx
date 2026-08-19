@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="safe-px mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 py-12 pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] sm:py-16">
+    <main id="main-content" className="safe-px mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 py-12 pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] sm:py-16">
       <PixelWordmark pixel={5} className="[--cell:5px]" />
       <h1 className="text-3xl font-semibold tracking-tight text-balance">Privacy</h1>
       <div className="flex flex-col gap-4 text-sm leading-7 text-pretty text-muted-foreground">

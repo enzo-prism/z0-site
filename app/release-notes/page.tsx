@@ -29,10 +29,11 @@ export default function ReleaseNotesPage() {
       <section aria-labelledby="included-title" className="space-y-3">
         <h2 id="included-title" className="text-lg font-semibold">Included</h2>
         <ul className="space-y-2 text-sm leading-6 text-muted-foreground">
-          <li>Detects this Mac and inspects certified Tekkit 2 1.2.6.</li>
-          <li>Creates a verified backup before applying the reversible Balanced overlay.</li>
-          <li>Opens official Technic and watches startup while you press Play.</li>
-          <li>Keeps worlds separate from settings recovery and creates redacted local diagnostics.</li>
+          <li>Restore is now locked to the selected Tekkit 2 instance, including world backups.</li>
+          <li>Tampered paths and symlink redirects fail closed before any restore write.</li>
+          <li>Setup guidance now links directly to official Technic, Rosetta 2, and arm64 Zulu 8.</li>
+          <li>Diagnostics can be revealed or copied, and launch receipts stay private on this Mac.</li>
+          <li>A manual Check for Updates reads this verified release record only when you ask.</li>
         </ul>
       </section>
 

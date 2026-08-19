@@ -4,8 +4,8 @@ Marketing site for **Z0**, a macOS companion for official Technic + Tekkit 2.
 
 - Next.js App Router on Vercel
 - Light / dark via `next-themes`
-- Manifest-verified notarized ZIP at `/downloads/Z0-0.1.0-arm64-notarized.zip`
-- Matching checksum at `/downloads/Z0-0.1.0-arm64-notarized.sha256`
+- Manifest-verified notarized ZIP at `/downloads/Z0-<version>-arm64-notarized.zip`
+- Matching checksum at `/downloads/Z0-<version>-arm64-notarized.sha256`
 - User-triggered update record at `/releases/latest.json`
 
 Production: [z0-site.vercel.app](https://z0-site.vercel.app)  

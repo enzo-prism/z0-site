@@ -1,22 +1,22 @@
 {
-  "schemaVersion": 1,
-  "version": "0.1.0",
-  "build": 1,
-  "releasedAt": "2026-08-19T14:47:32.000Z",
-  "productSourceCommit": "35db01721f4363957a1135d2597cc5ed71c8b913",
-  "downloadURL": "https://z0-site.vercel.app/downloads/Z0-0.1.0-arm64-notarized.zip",
-  "releaseNotesURL": "https://z0-site.vercel.app/release-notes",
-  "filename": "Z0-0.1.0-arm64-notarized.zip",
-  "checksumFilename": "Z0-0.1.0-arm64-notarized.sha256",
-  "bytes": 418531,
-  "sha256": "fcb1bd8a3819ea5879854bb0c3b5a496ea20ed2f012510162fa46042244c7516",
-  "bundleIdentifier": "app.z0.companion",
-  "teamIdentifier": "L49MKXGVM4",
-  "minimumSystemVersion": "14.0",
   "architecture": "arm64",
+  "build": 2,
+  "bundleIdentifier": "app.z0.companion",
+  "bytes": 470107,
+  "checksumFilename": "Z0-0.1.1-arm64-notarized.sha256",
+  "filename": "Z0-0.1.1-arm64-notarized.zip",
+  "minimumSystemVersion": "14.0",
   "notarization": {
+    "stapled": true,
     "status": "accepted",
-    "submissionId": "05094693-d15f-4b43-a5c9-ffb9aa668dce",
-    "stapled": true
-  }
+    "submissionId": "0e0a961c-5115-4834-8a68-a3e711d36444"
+  },
+  "productSourceCommit": "c8a3dc15a84b8aedb10594a6ae8aee37f5139428",
+  "releasedAt": "2026-08-19T15:22:47.000Z",
+  "schemaVersion": 1,
+  "sha256": "d4fbe5868867ff78da0f6a1787762e15a2521220e6aec196d131d22b9de54418",
+  "teamIdentifier": "L49MKXGVM4",
+  "version": "0.1.1",
+  "downloadURL": "https://z0-site.vercel.app/downloads/Z0-0.1.1-arm64-notarized.zip",
+  "releaseNotesURL": "https://z0-site.vercel.app/release-notes"
 }

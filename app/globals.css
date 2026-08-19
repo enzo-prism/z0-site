@@ -136,21 +136,214 @@
   }
 }
 
-.ascii-rain {
-  animation: rain-shift 32s linear infinite;
+.ambient-glow {
+  position: absolute;
+  width: min(42rem, 90vw);
+  height: min(42rem, 90vw);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.ambient-glow-a {
+  left: 8%;
+  top: -12%;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklch, var(--foreground) 16%, transparent),
+    transparent 68%
+  );
+  animation: drift-a 18s ease-in-out infinite alternate;
+}
+
+.ambient-glow-b {
+  right: -8%;
+  bottom: -18%;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklch, var(--foreground) 9%, transparent),
+    transparent 70%
+  );
+  animation: drift-b 24s ease-in-out infinite alternate;
+}
+
+.glyph-drift {
+  position: absolute;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  animation-name: glyph-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.boot-cell {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: boot-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.logo-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.logo-glow::after {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 32px;
+  background: color-mix(in oklch, var(--foreground) 18%, transparent);
+  filter: blur(22px);
+  z-index: -1;
+  animation: glow-pulse 3.6s ease-in-out infinite;
+}
+
+.flow-line {
+  overflow: hidden;
+  background: color-mix(in oklch, var(--foreground) 12%, transparent);
+}
+
+.flow-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 28%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--foreground),
+    transparent
+  );
+  animation: line-run 7.5s linear infinite;
+}
+
+.download-orb {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.download-orb:hover {
+  transform: scale(1.07);
+}
+
+.download-orb:active {
+  transform: scale(0.97);
+}
+
+.orb-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklch, var(--foreground) 28%, transparent);
+  animation: orb-pulse 2.8s ease-out infinite;
+}
+
+.orb-ring-delayed {
+  animation-delay: 1.4s;
+}
+
+.signal-glyph {
+  animation: signal-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ascii-rain {
+  .ambient-glow-a,
+  .ambient-glow-b,
+  .glyph-drift,
+  .boot-cell,
+  .logo-glow::after,
+  .flow-line::after,
+  .orb-ring,
+  .signal-glyph {
     animation: none;
+  }
+
+  .boot-cell {
+    fill-opacity: 1;
+    transform: none;
   }
 }
 
-@keyframes rain-shift {
+@keyframes drift-a {
   from {
-    transform: translateY(0);
+    transform: translate3d(-6%, -4%, 0);
   }
   to {
-    transform: translateY(-14px);
+    transform: translate3d(8%, 6%, 0);
+  }
+}
+
+@keyframes drift-b {
+  from {
+    transform: translate3d(4%, 6%, 0);
+  }
+  to {
+    transform: translate3d(-7%, -5%, 0);
+  }
+}
+
+@keyframes glyph-float {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.35;
+  }
+  to {
+    transform: translate3d(0, -18px, 0);
+    opacity: 0.9;
+  }
+}
+
+@keyframes boot-in {
+  from {
+    fill-opacity: 0.22;
+    transform: scale(0.72);
+  }
+  to {
+    fill-opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes line-run {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(420%);
+  }
+}
+
+@keyframes orb-pulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+}
+
+@keyframes signal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

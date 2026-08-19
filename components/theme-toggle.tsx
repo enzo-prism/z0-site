@@ -1,5 +1,6 @@
 "use client";
 
+import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -11,8 +12,7 @@ export function ThemeToggle() {
   return (
     <Button
       variant="ghost"
-      size="sm"
-      className="font-mono text-xs uppercase tracking-wider"
+      size="icon"
       aria-label={
         resolvedTheme
           ? isDark
@@ -23,7 +23,7 @@ export function ThemeToggle() {
       disabled={!resolvedTheme}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {resolvedTheme ? (isDark ? "lt" : "dk") : "··"}
+      {isDark ? <SunIcon /> : <MoonIcon />}
     </Button>
   );
 }

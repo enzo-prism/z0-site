@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { PixelHeading, PixelWordmark } from "@/components/pixel";
+import { PixelWordmark } from "@/components/pixel";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -11,7 +11,6 @@ export default function PrivacyPage() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col gap-8 px-4 py-16 sm:px-6">
       <PixelWordmark pixel={5} />
-      <PixelHeading text="privacy" pixel={2} />
       <h1 className="text-3xl font-semibold tracking-tight">Privacy</h1>
       <div className="flex flex-col gap-4 text-sm leading-7 text-muted-foreground">
         <p>

@@ -1,38 +1,39 @@
 import Link from "next/link";
+import { ArrowUpRightIcon, DownloadIcon, ShieldIcon } from "lucide-react";
 
 import { PixelWordmark } from "@/components/pixel";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-end sm:justify-between sm:px-6">
-        <div className="flex flex-col gap-3">
-          <PixelWordmark pixel={3} />
-          <p className="max-w-sm text-sm text-muted-foreground">
-            Independent macOS companion. Not Minecraft. Not Tekkit. Not
-            Technic.
-          </p>
-        </div>
-        <div className="flex flex-col gap-2 font-mono text-xs text-muted-foreground sm:items-end">
-          <p>v{site.version} · {site.bundleId}</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-foreground">
-              Privacy
-            </Link>
-            <a
-              href={site.technicUrl}
-              className="hover:text-foreground"
-              rel="noreferrer"
-            >
-              Technic
-            </a>
-            <Link href="/#download" className="hover:text-foreground">
-              Download
-            </Link>
-          </div>
-          <p>© 2026 Z0. All rights reserved.</p>
-        </div>
+    <footer className="border-t border-border/60">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
+        <PixelWordmark pixel={2} />
+        <nav className="flex items-center gap-1">
+          <Link
+            href="/privacy"
+            aria-label="Privacy"
+            className="flex size-8 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
+          >
+            <ShieldIcon className="size-3.5" />
+          </Link>
+          <a
+            href={site.technicUrl}
+            rel="noreferrer"
+            aria-label="Official Technic"
+            className="flex size-8 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
+          >
+            <ArrowUpRightIcon className="size-3.5" />
+          </a>
+          <a
+            href={site.download.href}
+            download={site.download.filename}
+            aria-label="Download Z0"
+            className="flex size-8 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
+          >
+            <DownloadIcon className="size-3.5" />
+          </a>
+        </nav>
       </div>
     </footer>
   );

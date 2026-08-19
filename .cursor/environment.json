@@ -1,0 +1,22 @@
+{
+  "name": "z0-site",
+  "user": "ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "install": "bash scripts/cloud-check.sh",
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "pnpm dev --hostname 0.0.0.0 --port 3000",
+      "description": "Next.js marketing site on port 3000"
+    }
+  ],
+  "ports": [
+    {
+      "name": "web",
+      "port": 3000
+    }
+  ],
+  "agentCanUpdateSnapshot": true
+}

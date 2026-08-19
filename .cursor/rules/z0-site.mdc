@@ -1,0 +1,16 @@
+---
+description: Z0 marketing site contract for local and Cursor Cloud agents
+alwaysApply: true
+---
+
+# z0-site
+
+Public Next.js 16 marketing site for Z0. GitHub `main` is production (Vercel).
+
+- Visual lockup is lowercase **z** at x-height + a taller slashed **0**. Do not restore a matching-height uppercase Z.
+- Homepage is icon-and-motion first. Keep copy in `sr-only`, labels, and `/privacy`.
+- Preserve iPhone safe-area padding and 44px tap targets.
+- Verify with `bash scripts/cloud-check.sh` (`pnpm lint` + `pnpm build`).
+- Do not commit `.env*` or `.vercel`. No Cursor Secrets are required to build the site.
+- Do not `vercel deploy --prod` unless the user asked. Do not copy the private `z0` Swift app into this tree.
+- Details: `docs/cursor-cloud.md`.

@@ -32,6 +32,15 @@ The homepage is icon-and-motion first. Visible copy stays in `sr-only` headings,
 
 The Mac app wordmark is the same lockup in `Apps/Z0/PixelText.swift` (`Z0Wordmark`) in the product repo.
 
+## Cursor Cloud
+
+Cloud agents use `.cursor/environment.json` (Ubuntu 24.04, Node 22, pnpm 11.22.0). After checkout they run `bash scripts/cloud-check.sh`. Details: `docs/cursor-cloud.md`.
+
+```sh
+bash scripts/cloud-check.sh
+pnpm dev
+```
+
 ## Develop
 
 ```sh

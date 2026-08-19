@@ -10,5 +10,6 @@ if ! command -v pnpm >/dev/null 2>&1; then
 fi
 
 pnpm install --frozen-lockfile
+pnpm verify:download
 pnpm lint
 pnpm build

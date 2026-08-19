@@ -2,7 +2,8 @@
 
 > Z0 is a native macOS companion that tunes official Technic + Tekkit 2 for this Mac, then opens Technic so you press Play. It never launches Minecraft.
 
-- Download: /downloads/Z0-0.1.0-macos-arm64.zip
+- Download: /downloads/Z0-0.1.0-arm64-notarized.zip
+- SHA-256: /downloads/Z0-0.1.0-arm64-notarized.sha256
 - Privacy: /privacy
 - Product: independent companion, not Minecraft / Tekkit / Technic
 - Platform: macOS 14+, Apple Silicon

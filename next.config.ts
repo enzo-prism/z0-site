@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+import release from "./lib/download-release.json";
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -19,15 +21,36 @@ const nextConfig: NextConfig = {
         headers: securityHeaders,
       },
       {
-        source: "/downloads/Z0-0.1.0-macos-arm64.zip",
+        source: `/downloads/${release.filename}`,
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=3600, stale-while-revalidate=86400",
+            value: "public, max-age=31536000, immutable",
           },
           {
             key: "Content-Disposition",
-            value: 'attachment; filename="Z0-0.1.0-macos-arm64.zip"',
+            value: `attachment; filename="${release.filename}"`,
+          },
+          {
+            key: "Content-Type",
+            value: "application/zip",
+          },
+        ],
+      },
+      {
+        source: `/downloads/${release.checksumFilename}`,
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+          {
+            key: "Content-Disposition",
+            value: `attachment; filename="${release.checksumFilename}"`,
+          },
+          {
+            key: "Content-Type",
+            value: "text/plain; charset=utf-8",
           },
         ],
       },

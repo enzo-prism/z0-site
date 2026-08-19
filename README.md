@@ -4,7 +4,8 @@ Marketing site for **Z0**, a macOS companion for official Technic + Tekkit 2.
 
 - Next.js App Router on Vercel
 - Light / dark via `next-themes`
-- Direct download of `Z0.app` at `/downloads/Z0-0.1.0-macos-arm64.zip`
+- Manifest-verified notarized ZIP at `/downloads/Z0-0.1.0-arm64-notarized.zip`
+- Matching checksum at `/downloads/Z0-0.1.0-arm64-notarized.sha256`
 
 Production: [z0-site.vercel.app](https://z0-site.vercel.app)  
 Repo: [enzo-prism/z0-site](https://github.com/enzo-prism/z0-site) (`main` is production)
@@ -29,6 +30,7 @@ The homepage is icon-and-motion first. Visible copy stays in `sr-only` headings,
 | Open Graph lockup | `app/opengraph-image.tsx` |
 | Home stage | `components/home-view.tsx` |
 | Download | `components/download-orb.tsx`, `lib/site.ts` |
+| Release integrity | `lib/download-release.json`, `scripts/verify-download.mjs` |
 
 The Mac app wordmark is the same lockup in `Apps/Z0/PixelText.swift` (`Z0Wordmark`) in the product repo.
 
@@ -40,6 +42,10 @@ Cloud agents use `.cursor/environment.json` (Ubuntu 24.04, Node 22, pnpm 11.22.0
 bash scripts/cloud-check.sh
 pnpm dev
 ```
+
+`cloud-check.sh` fails closed unless the release manifest, notarized ZIP,
+checksum sidecar, byte count, digest, and app-bundle ZIP layout all agree. A
+released filename is immutable and must never be overwritten with new bytes.
 
 ## Develop
 

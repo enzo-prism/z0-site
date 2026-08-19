@@ -11,9 +11,9 @@ export function HomeView() {
   return (
     <main className="relative flex min-h-0 flex-1 flex-col overflow-x-clip">
       <AmbientStage />
-      <h1 className="sr-only">{site.name} — {site.tagline}</h1>
-      <p className="sr-only">{site.description}</p>
       <section className="home-stage safe-px relative flex flex-1 flex-col items-center justify-center">
+        <h1 className="sr-only">{site.name} — {site.tagline}</h1>
+        <p className="sr-only">{site.description}</p>
         <div className="logo-glow">
           <Image
             src="/brand/logo.png"

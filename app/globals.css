@@ -244,13 +244,37 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .download-orb:hover {
-    transform: scale(1.07);
+  .download-control:hover .download-orb {
+    transform: scale(1.08);
   }
 }
 
-.download-orb:active {
-  transform: scale(0.97);
+.release-link {
+  border-radius: 0.25rem;
+  color: var(--foreground);
+  text-underline-offset: 0.22em;
+}
+
+.release-link:hover {
+  text-decoration-line: underline;
+}
+
+.release-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.requirements summary::-webkit-details-marker {
+  display: none;
+}
+
+.requirements summary::before {
+  content: "+";
+  margin-right: 0.55rem;
+}
+
+.requirements[open] summary::before {
+  content: "−";
 }
 
 .orb-ring {
@@ -371,7 +395,7 @@
 }
 
 .home-stage {
-  gap: 1.5rem;
+  gap: 1.25rem;
   padding-block: 1.75rem 2rem;
 }
 

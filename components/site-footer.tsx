@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRightIcon, DownloadIcon, ShieldIcon } from "lucide-react";
+import { ArrowUpRightIcon, DownloadIcon, FileTextIcon, ShieldIcon } from "lucide-react";
 
 import { PixelWordmark } from "@/components/pixel";
 import { site } from "@/lib/site";
@@ -17,6 +17,13 @@ export function SiteFooter() {
           >
             <ShieldIcon className="size-3.5" />
           </Link>
+          <Link
+            href="/release-notes"
+            aria-label={`Release notes for Z0 ${site.version}`}
+            className="flex size-11 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
+          >
+            <FileTextIcon aria-hidden="true" className="size-3.5" />
+          </Link>
           <a
             href={site.technicUrl}
             rel="noreferrer"
@@ -28,10 +35,10 @@ export function SiteFooter() {
           <a
             href={site.download.href}
             download={site.download.filename}
-            aria-label="Download Z0"
+            aria-label={`Download Z0 ${site.version} for ${site.download.platform}`}
             className="flex size-11 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
           >
-            <DownloadIcon className="size-3.5" />
+            <DownloadIcon aria-hidden="true" className="size-3.5" />
           </a>
         </nav>
       </div>

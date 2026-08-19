@@ -1,3 +1,11 @@
+import release from "@/lib/download-release.json";
+
+function formatBytes(bytes: number) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
 export const site = {
   name: "Z0",
   tagline: "Mac companion for official Technic",
@@ -10,16 +18,17 @@ export const site = {
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
-  version: "0.1.0",
+  version: release.version,
   bundleId: "app.z0.companion",
   technicUrl: "https://www.technicpack.net/download",
   download: {
-    href: "/downloads/Z0-0.1.0-macos-arm64.zip",
-    filename: "Z0-0.1.0-macos-arm64.zip",
+    href: `/downloads/${release.filename}`,
+    checksumHref: `/downloads/${release.checksumFilename}`,
+    filename: release.filename,
     label: "Download Z0 for Mac",
     platform: "macOS 14+ · Apple Silicon",
-    size: "510 KB",
-    sha256: "516c92df2c47c215414860a8630db86fff0853e58af926ac1c9662ee6c9678b5",
+    size: formatBytes(release.bytes),
+    sha256: release.sha256,
   },
 } as const;
 
@@ -119,8 +128,8 @@ export const faqs = [
     a: "Yes. Apply always snapshots first. Restore overlay is one click after you quit Technic. World saves are backed up separately.",
   },
   {
-    q: "Why the Gatekeeper warning?",
-    a: "0.1.0 is an early developer build. It is not notarized yet. After unzipping, open Z0.app from Applications. If macOS blocks it, allow it in System Settings → Privacy & Security.",
+    q: "Is the Mac download signed?",
+    a: "Yes. The release is Developer ID signed, notarized by Apple, and stapled for macOS.",
   },
 ] as const;
 

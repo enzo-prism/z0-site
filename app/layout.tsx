@@ -78,6 +78,7 @@ const jsonLd = {
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "macOS 14",
   softwareVersion: site.version,
+  downloadUrl: new URL(site.download.href, site.url).toString(),
   description: site.description,
   offers: {
     "@type": "Offer",

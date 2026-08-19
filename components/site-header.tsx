@@ -31,11 +31,14 @@ export function SiteHeader() {
           <Button
             asChild
             size="icon"
-            aria-label="Download Z0 for Mac"
             className="size-11"
           >
-            <a href={site.download.href} download={site.download.filename}>
-              <DownloadIcon />
+            <a
+              href={site.download.href}
+              download={site.download.filename}
+              aria-label={`Download Z0 ${site.version} for ${site.download.platform}`}
+            >
+              <DownloadIcon aria-hidden="true" />
             </a>
           </Button>
         </div>

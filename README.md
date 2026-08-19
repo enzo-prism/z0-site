@@ -34,6 +34,13 @@ The homepage is icon-and-motion first. Visible copy stays in `sr-only` headings,
 | Release integrity | `lib/download-release.json`, `scripts/verify-download.mjs` |
 | Update channel | `public/releases/latest.json`, `docs/update-channel.md` |
 
+## Review contact seam
+
+The AppID-review, privacy, terms, support, and security pages use the approved
+public contact address `lorenzosison@gmail.com`. A production environment may
+override it with `NEXT_PUBLIC_Z0_CONTACT_EMAIL`, but any override must also be
+reflected in `public/.well-known/security.txt` and the Entra app contact.
+
 The Mac app wordmark is the same lockup in `Apps/Z0/PixelText.swift` (`Z0Wordmark`) in the product repo.
 
 ## Cursor Cloud

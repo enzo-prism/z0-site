@@ -9,7 +9,7 @@ const glyphs = [
   { icon: PackageCheckIcon, label: "Certified Tekkit 2 1.2.6" },
   { icon: Undo2Icon, label: "Restore overlay" },
   { icon: StethoscopeIcon, label: "Redacted diagnostics" },
-  { icon: CircleOffIcon, label: "Never launches Minecraft" },
+  { icon: CircleOffIcon, label: "Direct launch approval-gated" },
 ] as const;
 
 export function SignalGlyphs() {

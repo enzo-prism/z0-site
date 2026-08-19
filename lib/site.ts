@@ -10,9 +10,9 @@ export const site = {
   name: "Z0",
   tagline: "Mac companion for official Technic",
   description:
-    "Z0 tunes official Technic + Tekkit 2 for this Mac, then opens Technic so you press Play. It never launches Minecraft.",
+    "Z0 0.1.2 tunes official Technic + Tekkit 2, then hands Play to Technic. Independent direct launch is planned and remains disabled pending AppID approval.",
   support:
-    "Play stays in Technic. Z0 never launches Minecraft.",
+    "The current release hands Play to Technic. Direct launch is not enabled.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -25,8 +25,6 @@ export const site = {
   rosettaUrl: "https://support.apple.com/en-us/102527",
   zuluUrl:
     "https://www.azul.com/downloads/?version=java-8-lts&os=macos&architecture=arm-64-bit&package=jdk",
-  supportIssueUrl:
-    "https://github.com/enzo-prism/z0-site/issues/new?template=z0-support.yml",
   download: {
     href: `/downloads/${release.filename}`,
     checksumHref: `/downloads/${release.checksumFilename}`,
@@ -97,8 +95,8 @@ export const features = [
   },
   {
     icon: "app" as const,
-    title: "Play stays in Technic",
-    body: "Z0 never downloads Minecraft, never installs the pack, and never constructs a launch command.",
+    title: "Current Play handoff",
+    body: "Z0 0.1.2 does not download Minecraft, install the pack, or construct a launch command. Direct launch remains approval-gated.",
   },
   {
     icon: "stethoscope" as const,
@@ -119,7 +117,7 @@ export const requirements = [
 export const faqs = [
   {
     q: "Does Z0 launch Minecraft?",
-    a: "No. Z0 opens official Technic and watches startup. You press Play in Technic. Z0 never constructs a game launch command.",
+    a: "Not in Z0 0.1.2. The current release opens official Technic and watches startup. Independent direct launch remains disabled pending AppID approval.",
   },
   {
     q: "Is this an official Technic or Minecraft product?",

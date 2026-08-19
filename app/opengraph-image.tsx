@@ -68,7 +68,7 @@ export default function OpenGraphImage() {
             Mac companion for official Technic
           </div>
           <div style={{ fontSize: 22, opacity: 0.58 }}>
-            Play stays in Technic. Z0 never launches Minecraft.
+            Z0 0.1.2 hands Play to Technic. Direct launch is not enabled.
           </div>
         </div>
       </div>

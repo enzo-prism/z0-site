@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${site.url}/launcher`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${site.url}/release-notes`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -27,7 +33,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${site.url}/privacy`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.4,
+      priority: 0.6,
+    },
+    {
+      url: `${site.url}/terms`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${site.url}/support`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${site.url}/security`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.5,
     },
   ];
 }

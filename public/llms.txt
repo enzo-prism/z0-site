@@ -1,10 +1,17 @@
 # Z0
 
-> Z0 is a native macOS companion that tunes official Technic + Tekkit 2 for this Mac, then opens Technic so you press Play. It never launches Minecraft.
+> Z0 is an independent native macOS product. The current 0.1.2 release tunes official Technic + Tekkit 2 and hands Play to Technic. Direct Minecraft: Java Edition launch is planned but remains disabled until Z0's AppID is approved.
 
-- Download: /downloads/Z0-0.1.0-arm64-notarized.zip
-- SHA-256: /downloads/Z0-0.1.0-arm64-notarized.sha256
+- Current download: /downloads/Z0-0.1.2-arm64-notarized.zip
+- SHA-256: /downloads/Z0-0.1.2-arm64-notarized.sha256
+- Independent launcher plan: /launcher
 - Privacy: /privacy
-- Product: independent companion, not Minecraft / Tekkit / Technic
+- Terms: /terms
+- Support: /support
+- Security: /security
 - Platform: macOS 14+, Apple Silicon
-- Certified pack: Tekkit 2 1.2.6, Minecraft 1.12.2, Forge 14.23.5.2860
+- Current certified pack: Tekkit 2 1.2.6, Minecraft 1.12.2, Forge 14.23.5.2860
+- Bundle identifier: app.z0.companion
+- Publisher: Lorenzo Quaid Sison
+
+NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.

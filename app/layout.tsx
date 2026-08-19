@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
+  creator: "Lorenzo Quaid Sison",
+  publisher: "Lorenzo Quaid Sison",
+  category: "utilities",
   keywords: [
     "Z0",
     "Technic",
@@ -80,6 +83,10 @@ const jsonLd = {
   softwareVersion: site.version,
   downloadUrl: new URL(site.download.href, site.url).toString(),
   description: site.description,
+  author: {
+    "@type": "Person",
+    name: "Lorenzo Quaid Sison",
+  },
   offers: {
     "@type": "Offer",
     price: "0",

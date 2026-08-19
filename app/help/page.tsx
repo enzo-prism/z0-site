@@ -45,7 +45,7 @@ export default function HelpPage() {
       <section aria-labelledby="play-title" className="space-y-3">
         <h2 id="play-title" className="text-lg font-semibold">Where Play happens</h2>
         <p className="text-sm leading-6 text-muted-foreground">
-          Z0 never launches Minecraft or builds a game command. It makes a verified backup, applies the reversible Balanced overlay, and opens official Technic. Select Tekkit 2 and press Play in Technic.
+          Z0 0.1.2 does not launch Minecraft or build a game command. It makes a verified backup, applies the reversible Balanced overlay, and opens official Technic. Select Tekkit 2 and press Play in Technic. Independent direct launch remains disabled pending AppID approval.
         </p>
       </section>
 
@@ -54,9 +54,9 @@ export default function HelpPage() {
         <p className="text-sm leading-6 text-muted-foreground">
           Run Diagnostics in Z0’s Tools panel. The summary stays on your Mac. Open and review it before sharing. Never attach a world, full launcher log, crash folder, account token, email address, server address, or unreviewed screenshot to a public issue.
         </p>
-        <a className="release-link inline-flex min-h-11 items-center text-sm" href={site.supportIssueUrl} rel="noreferrer">
-          Open the public support form
-        </a>
+        <Link className="release-link inline-flex min-h-11 items-center text-sm" href="/support">
+          Contact Z0 support
+        </Link>
       </section>
 
       <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm">

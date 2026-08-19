@@ -14,7 +14,7 @@ const glyphs = [
 
 export function SignalGlyphs() {
   return (
-    <ul className="flex items-center gap-3">
+    <ul className="flex max-w-full flex-wrap items-center justify-center gap-2 sm:gap-3">
       {glyphs.map((glyph, index) => {
         const Icon = glyph.icon;
         return (
@@ -22,7 +22,7 @@ export function SignalGlyphs() {
             <span
               title={glyph.label}
               aria-label={glyph.label}
-            className="signal-glyph flex size-10 items-center justify-center rounded-xl border border-border bg-background/70 text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
+              className="signal-glyph flex size-11 items-center justify-center rounded-xl border border-border bg-background/70 text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
               style={{ animationDelay: `${index * 180}ms` }}
             >
               <Icon className="size-4" />

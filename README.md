@@ -21,7 +21,7 @@ The visual lockup is **z0**, not a matching-height **Z0**:
 
 Product copy, metadata, and the download filename still use **Z0**. Do not restore an uppercase 7×7 Z in the wordmark.
 
-The homepage is icon-and-motion first. Visible copy stays in `sr-only` headings, control labels, and `/privacy`.
+The homepage is icon-and-motion first. Visible copy stays in `sr-only` headings, control labels, and `/privacy`. Layout is built for iPhone: Dynamic Island / home-indicator safe areas, 44px tap targets, and a stage that tightens on short viewports.
 
 | Piece | File |
 | --- | --- |

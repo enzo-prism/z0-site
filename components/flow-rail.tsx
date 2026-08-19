@@ -48,21 +48,21 @@ export function FlowRail() {
   }, [reduce]);
 
   return (
-    <ol className="relative mx-auto flex w-full max-w-[20rem] items-start justify-between pb-6 sm:max-w-xl">
-      <span className="flow-line absolute top-[18px] right-5 left-5 h-px sm:top-[22px] sm:right-8 sm:left-8" />
+    <ol className="relative mx-auto flex w-full max-w-[min(20rem,100%)] items-start justify-between px-0.5 pb-7 sm:max-w-xl sm:px-0 sm:pb-6">
+      <span className="flow-line absolute top-[22px] right-6 left-6 h-px sm:top-[22px] sm:right-8 sm:left-8" />
       {steps.map((step, index) => {
         const Icon = step.icon;
         const on = reduce || index === active;
         return (
           <li
             key={step.label}
-            className="relative z-10 flex w-10 shrink-0 flex-col items-center sm:w-14"
+            className="relative z-10 flex w-11 shrink-0 flex-col items-center sm:w-14"
           >
             <span
               className={cn(
-                "flex size-9 items-center justify-center rounded-2xl border transition-all duration-500 sm:size-11",
+                "flex size-11 items-center justify-center rounded-2xl border transition-all duration-500",
                 on
-                  ? "scale-110 border-foreground/20 bg-foreground text-background shadow-[0_0_24px_color-mix(in_oklch,var(--foreground)_22%,transparent)]"
+                  ? "scale-105 border-foreground/20 bg-foreground text-background shadow-[0_0_24px_color-mix(in_oklch,var(--foreground)_22%,transparent)] sm:scale-110"
                   : "border-border bg-background/80 text-muted-foreground",
               )}
             >
@@ -70,7 +70,7 @@ export function FlowRail() {
             </span>
             <span
               className={cn(
-                "pointer-events-none absolute top-[calc(100%+0.45rem)] font-mono text-[10px] tracking-[0.18em] whitespace-nowrap uppercase transition-opacity duration-500",
+                "pointer-events-none absolute top-[calc(100%+0.4rem)] max-w-[4.75rem] truncate text-center font-mono text-[10px] tracking-[0.12em] whitespace-nowrap uppercase transition-opacity duration-500 sm:tracking-[0.18em]",
                 on ? "text-foreground opacity-100" : "opacity-0",
               )}
             >

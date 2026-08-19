@@ -9,11 +9,11 @@ import { site } from "@/lib/site";
 
 export function HomeView() {
   return (
-    <main className="relative flex flex-1 flex-col">
+    <main className="relative flex min-h-0 flex-1 flex-col overflow-x-clip">
       <AmbientStage />
       <h1 className="sr-only">{site.name} — {site.tagline}</h1>
       <p className="sr-only">{site.description}</p>
-      <section className="relative flex flex-1 flex-col items-center justify-center gap-10 px-4 py-12 pb-16 sm:gap-12 sm:px-6">
+      <section className="home-stage safe-px relative flex flex-1 flex-col items-center justify-center">
         <div className="logo-glow">
           <Image
             src="/brand/logo.png"
@@ -21,10 +21,14 @@ export function HomeView() {
             width={72}
             height={72}
             priority
-            className="size-[72px] rounded-[18px] border border-border [image-rendering:pixelated]"
+            className="size-14 rounded-[14px] border border-border [image-rendering:pixelated] sm:size-[72px] sm:rounded-[18px]"
           />
         </div>
-        <PixelWordmark pixel={11} boot className="origin-center max-sm:scale-[0.78]" />
+        <PixelWordmark
+          pixel={11}
+          boot
+          className="[--cell:8px] min-[400px]:[--cell:9px] sm:[--cell:11px]"
+        />
         <FlowRail />
         <DownloadOrb />
         <SignalGlyphs />

@@ -127,12 +127,32 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     @apply font-sans;
     color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overscroll-behavior-x: none;
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+.safe-px {
+  padding-left: max(1rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1rem, env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 640px) {
+  .safe-px {
+    padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
   }
 }
 
@@ -223,8 +243,10 @@
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.download-orb:hover {
-  transform: scale(1.07);
+@media (hover: hover) and (pointer: fine) {
+  .download-orb:hover {
+    transform: scale(1.07);
+  }
 }
 
 .download-orb:active {
@@ -345,5 +367,24 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.home-stage {
+  gap: 1.5rem;
+  padding-block: 1.75rem 2rem;
+}
+
+@media (max-height: 740px) {
+  .home-stage {
+    gap: 1.15rem;
+    padding-block: 1.15rem 1.35rem;
+  }
+}
+
+@media (max-height: 560px) {
+  .home-stage {
+    gap: 0.8rem;
+    padding-block: 0.7rem 0.9rem;
   }
 }

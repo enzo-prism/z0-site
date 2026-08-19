@@ -20,6 +20,7 @@ export function ThemeToggle() {
             : "Switch to dark mode"
           : "Toggle theme"
       }
+      className="size-11"
       disabled={!resolvedTheme}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >

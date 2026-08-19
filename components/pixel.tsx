@@ -37,7 +37,11 @@ function Bitmap({
       width={columns * pixel}
       height={rows.length * pixel}
       viewBox={`0 0 ${columns} ${rows.length}`}
-      className={cn("shrink-0 fill-current", className)}
+      className={cn("h-auto w-auto shrink-0 fill-current", className)}
+      style={{
+        width: `calc(var(--cell, ${pixel}px) * ${columns})`,
+        height: `calc(var(--cell, ${pixel}px) * ${rows.length})`,
+      }}
       aria-hidden
     >
       {on.map(([x, y], index) => (
@@ -70,12 +74,15 @@ export function PixelWordmark({
 }) {
   return (
     <div
-      className={cn("flex items-end text-foreground", className)}
+      className={cn(
+        "flex items-end gap-[var(--cell)] text-foreground [--cell:5px]",
+        className,
+      )}
       role="img"
       aria-label="z0"
     >
       <Bitmap rows={LOWERCASE_Z} columns={7} pixel={pixel} boot={boot} />
-      <span style={{ width: pixel }} />
+      <span className="w-[var(--cell)] shrink-0" />
       <Bitmap
         rows={SLASHED_ZERO}
         columns={7}

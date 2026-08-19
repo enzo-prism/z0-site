@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const Z = [0b1111111, 0b0000010, 0b0000100, 0b0001000, 0b0010000, 0b0100000, 0b1111111];
+const LOWERCASE_Z = [0b1111111, 0b0000110, 0b0001000, 0b0110000, 0b1111111];
 const ZERO = [0b0111110, 0b1000011, 0b1000101, 0b1001001, 0b1010001, 0b1100001, 0b0111110];
 
 function Glyph({ rows, columns }: { rows: number[]; columns: number }) {
@@ -56,10 +56,10 @@ export default function OpenGraphImage() {
               fontFamily: "ui-monospace, Menlo, monospace",
             }}
           >
-            Z0 / STAGE 1
+            z0 / STAGE 1
           </div>
-          <div style={{ display: "flex", gap: 14 }}>
-            <Glyph rows={Z} columns={7} />
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 14 }}>
+            <Glyph rows={LOWERCASE_Z} columns={7} />
             <Glyph rows={ZERO} columns={7} />
           </div>
         </div>

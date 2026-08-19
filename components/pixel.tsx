@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 
-const Z = [0b1111111, 0b0000010, 0b0000100, 0b0001000, 0b0010000, 0b0100000, 0b1111111];
+/** Lowercase z at x-height (5 rows) so the slashed 0 reads taller. */
+const LOWERCASE_Z = [0b1111111, 0b0000110, 0b0001000, 0b0110000, 0b1111111];
 const SLASHED_ZERO = [0b0111110, 0b1000011, 0b1000101, 0b1001001, 0b1010001, 0b1100001, 0b0111110];
 
 function cells(rows: number[], columns: number) {
@@ -69,11 +70,11 @@ export function PixelWordmark({
 }) {
   return (
     <div
-      className={cn("flex items-start text-foreground", className)}
+      className={cn("flex items-end text-foreground", className)}
       role="img"
-      aria-label="Z0"
+      aria-label="z0"
     >
-      <Bitmap rows={Z} columns={7} pixel={pixel} boot={boot} />
+      <Bitmap rows={LOWERCASE_Z} columns={7} pixel={pixel} boot={boot} />
       <span style={{ width: pixel }} />
       <Bitmap
         rows={SLASHED_ZERO}

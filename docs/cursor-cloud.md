@@ -42,4 +42,4 @@ No Cursor Secrets are required to lint or build. Production deploys stay on the 
 
 ## After a cloud PR
 
-A human (or a follow-up agent with explicit permission) merges to `main` when the site should go live. Visual checks: desktop plus an iPhone-width pass. Brand lockup: `docs` in the root `README.md`.
+A human (or a follow-up agent with explicit permission) merges to `main` when the site should go live. Visual checks: desktop plus an iPhone-width pass on the dark HUD stage (corner brackets, download key, 44px footer links including Security). Brand lockup: `docs` in the root `README.md`.

@@ -1,4 +1,28 @@
+import { PixelChevron } from "@/components/pixel";
 import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
+
+export function DownloadKey({
+  compact = false,
+  className,
+  titleId,
+}: {
+  compact?: boolean;
+  className?: string;
+  titleId?: string;
+}) {
+  return (
+    <a
+      href={site.download.href}
+      download={site.download.filename}
+      className={cn("download-key", compact && "download-key-compact", className)}
+      aria-describedby={titleId ? "download-meta download-handoff" : undefined}
+    >
+      <span id={titleId}>Download</span>
+      <PixelChevron />
+    </a>
+  );
+}
 
 export function DownloadOrb() {
   return (
@@ -6,23 +30,23 @@ export function DownloadOrb() {
       id="download"
       tabIndex={-1}
       aria-labelledby="download-title"
-      className="mt-14 flex w-full max-w-sm scroll-mt-20 flex-col items-start gap-4 outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:mt-16"
+      className="mt-10 flex w-full flex-col items-stretch gap-3 outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:mt-12"
     >
-      <a
-        href={site.download.href}
-        download={site.download.filename}
-        aria-describedby="download-meta download-handoff"
-        className="flex min-h-14 w-full items-center justify-center rounded-xl bg-primary px-6 py-3 text-primary-foreground outline-none transition-opacity hover:opacity-88 focus-visible:ring-3 focus-visible:ring-ring/60 active:opacity-75"
+      <div className="stage-enter" style={{ animationDelay: "720ms" }}>
+        <DownloadKey titleId="download-title" />
+      </div>
+      <p
+        id="download-meta"
+        className="stage-enter-meta font-mono text-[10px] leading-4 tracking-[0.12em] text-muted-foreground uppercase"
+        style={{ animationDelay: "820ms" }}
       >
-        <span id="download-title" className="text-base font-semibold tracking-tight">
-          Download Z0
-        </span>
-      </a>
-
-      <p id="download-meta" className="font-mono text-[10px] tracking-[0.1em] text-muted-foreground uppercase">
-        {site.version} · {site.download.platform}
+        {site.version} · {site.download.platform} · {site.download.size}
       </p>
-      <p id="download-handoff" className="text-xs leading-5 text-muted-foreground">
+      <p
+        id="download-handoff"
+        className="stage-enter-meta text-xs leading-[1.5] text-muted-foreground"
+        style={{ animationDelay: "880ms" }}
+      >
         Opens Technic. You press Play.
       </p>
     </section>

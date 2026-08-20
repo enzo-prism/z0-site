@@ -8,7 +8,7 @@ alwaysApply: true
 Public Next.js 16 marketing site for Z0. GitHub `main` is production (Vercel).
 
 - Visual lockup is lowercase **z** at x-height + a taller slashed **0**. Do not restore a matching-height uppercase Z.
-- Homepage is icon-and-motion first. Keep copy in `sr-only`, labels, and `/privacy`.
+- Homepage is a dark HUD stage (grid, corners, LED boot, 2px download key). Keep copy in `sr-only`, labels, and inner pages. Do not add a wordy home landing.
 - Preserve iPhone safe-area padding and 44px tap targets.
 - Verify with `bash scripts/cloud-check.sh` (`pnpm lint` + `pnpm build`).
 - Do not commit `.env*` or `.vercel`. No Cursor Secrets are required to build the site.

@@ -6,6 +6,11 @@ export const contentType = "image/png";
 const LOWERCASE_Z = [0b1111111, 0b0000110, 0b0001000, 0b0110000, 0b1111111];
 const ZERO = [0b0111110, 0b1000011, 0b1000101, 0b1001001, 0b1010001, 0b1100001, 0b0111110];
 
+const INK = "#E8EBF0";
+const VOID = "#0C0E12";
+const MUTED = "rgba(232, 235, 240, 0.46)";
+const LINE = "rgba(232, 235, 240, 0.18)";
+
 function Glyph({ rows, columns }: { rows: number[]; columns: number }) {
   const pixel = 14;
   return (
@@ -20,7 +25,7 @@ function Glyph({ rows, columns }: { rows: number[]; columns: number }) {
                 style={{
                   width: pixel,
                   height: pixel,
-                  background: on ? "#F4F1EC" : "transparent",
+                  background: on ? INK : "transparent",
                 }}
               />
             );
@@ -41,35 +46,58 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#09090A",
-          color: "#F4F1EC",
-          padding: "72px",
+          background: VOID,
+          color: INK,
+          padding: "64px 72px",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            borderTop: `1px solid ${LINE}`,
+            paddingTop: 20,
+          }}
+        >
           <div
             style={{
               display: "flex",
-              fontSize: 18,
+              fontSize: 16,
               letterSpacing: 6,
-              opacity: 0.5,
+              color: MUTED,
               fontFamily: "ui-monospace, Menlo, monospace",
             }}
           >
-            z0 / STAGE 1
+            STAGE 1
           </div>
-          <div style={{ display: "flex", alignItems: "flex-end", gap: 14 }}>
-            <Glyph rows={LOWERCASE_Z} columns={7} />
-            <Glyph rows={ZERO} columns={7} />
+          <div
+            style={{
+              display: "flex",
+              fontSize: 16,
+              letterSpacing: 6,
+              color: MUTED,
+              fontFamily: "ui-monospace, Menlo, monospace",
+            }}
+          >
+            Z0
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-          <div style={{ fontSize: 40, letterSpacing: -1 }}>
-            Mac companion for official Technic
-          </div>
-          <div style={{ fontSize: 22, opacity: 0.58 }}>
-            Z0 0.1.2 hands Play to Technic. Direct launch is not enabled.
-          </div>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 14 }}>
+          <Glyph rows={LOWERCASE_Z} columns={7} />
+          <Glyph rows={ZERO} columns={7} />
+        </div>
+        <div
+          style={{
+            display: "flex",
+            fontSize: 18,
+            letterSpacing: 4,
+            color: MUTED,
+            fontFamily: "ui-monospace, Menlo, monospace",
+            borderBottom: `1px solid ${LINE}`,
+            paddingBottom: 20,
+          }}
+        >
+          MAC COMPANION FOR OFFICIAL TECHNIC
         </div>
       </div>
     ),

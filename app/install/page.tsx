@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { PixelWordmark } from "@/components/pixel";
+import { DocShell } from "@/components/doc-shell";
+import { DownloadKey } from "@/components/download-orb";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -34,53 +35,43 @@ const steps = [
 
 export default function InstallPage() {
   return (
-    <main id="main-content" className="safe-px mx-auto flex w-full max-w-2xl flex-1 flex-col gap-9 py-12 pb-[max(3rem,calc(3rem+env(safe-area-inset-bottom,0px)))] sm:py-16">
-      <PixelWordmark pixel={5} className="[--cell:5px]" />
-
-      <header className="space-y-3">
-        <p className="font-mono text-xs tracking-[0.14em] text-muted-foreground uppercase">
-          Four steps · Stage 1
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight text-balance">Install Z0</h1>
-        <p className="max-w-xl text-sm leading-6 text-muted-foreground">
-          Z0 prepares Tekkit 2 for this Mac and hands play back to official Technic.
-        </p>
-      </header>
-
-      <ol className="space-y-7">
+    <DocShell
+      kicker="Four steps · Stage 1"
+      title="Install Z0"
+      intro="Z0 prepares Tekkit 2 for this Mac and hands play back to official Technic."
+    >
+      <ol className="space-y-8">
         {steps.map((step) => (
-          <li key={step.number} className="grid grid-cols-[2rem_1fr] gap-3">
-            <span className="pt-0.5 font-mono text-xs text-muted-foreground" aria-hidden="true">
+          <li key={step.number} className="grid grid-cols-[2.5rem_1fr] gap-3">
+            <span className="pt-1 font-mono text-[11px] tracking-[0.08em] text-muted-foreground" aria-hidden="true">
               {step.number}
             </span>
             <div className="space-y-1.5">
-              <h2 className="font-semibold">{step.title}</h2>
-              <p className="text-sm leading-6 text-muted-foreground">{step.body}</p>
+              <h2 className="doc-h2">{step.title}</h2>
+              <p className="doc-body">{step.body}</p>
             </div>
           </li>
         ))}
       </ol>
 
-      <nav aria-label="Required downloads" className="flex flex-wrap gap-x-5 gap-y-3 border-t border-border pt-6 text-sm">
-        <a className="release-link" href={site.technicUrl} rel="noreferrer">
+      <nav aria-label="Required downloads" className="doc-rule flex flex-wrap gap-x-5 gap-y-3 text-sm">
+        <a className="release-link inline-flex min-h-11 items-center" href={site.technicUrl} rel="noreferrer">
           Official Technic
         </a>
-        <a className="release-link" href={site.rosettaUrl} rel="noreferrer">
+        <a className="release-link inline-flex min-h-11 items-center" href={site.rosettaUrl} rel="noreferrer">
           Rosetta 2
         </a>
-        <a className="release-link" href={site.zuluUrl} rel="noreferrer">
+        <a className="release-link inline-flex min-h-11 items-center" href={site.zuluUrl} rel="noreferrer">
           Azul Zulu 8
         </a>
       </nav>
 
-      <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm">
-        <a className="release-link" href={site.download.href} download={site.download.filename}>
-          Download Z0 {site.version}
-        </a>
-        <Link className="release-link" href="/help">
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+        <DownloadKey compact />
+        <Link className="release-link inline-flex min-h-11 items-center text-sm" href="/help">
           Get help
         </Link>
       </div>
-    </main>
+    </DocShell>
   );
 }

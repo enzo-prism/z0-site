@@ -3,7 +3,7 @@
 Marketing site for **Z0**, a macOS companion for official Technic + Tekkit 2.
 
 - Next.js App Router on Vercel
-- Light / dark via `next-themes`
+- Dark-first HUD (cool near-black). Light via `next-themes` toggle
 - Manifest-verified notarized ZIP at `/downloads/Z0-<version>-arm64-notarized.zip`
 - Matching checksum at `/downloads/Z0-<version>-arm64-notarized.sha256`
 - User-triggered update record at `/releases/latest.json`
@@ -23,14 +23,18 @@ The visual lockup is **z0**, not a matching-height **Z0**:
 
 Product copy, metadata, and the download filename still use **Z0**. Do not restore an uppercase 7×7 Z in the wordmark.
 
-The homepage is intentionally sparse: one pixel wordmark, one download action, and one honest Technic handoff line. Layout is built for iPhone safe areas, 44px tap targets, and generous responsive whitespace.
+The homepage is a dark HUD stage: dotted grid, corner brackets, LED-matrix wordmark boot, and one 2px download key. Visible type is labels only (`STAGE 1`, version/platform readout, Technic handoff). Marketing copy stays in `sr-only`, link labels, and inner pages. Layout is built for iPhone safe areas, 44px tap targets, and generous responsive whitespace. Do not add a feature grid, FAQ, or terminal mock to the home stage.
+
+Inner pages are a manual (`components/doc-shell.tsx`): mono kicker, medium-weight title, hairline rules. The header already carries the wordmark — do not duplicate it under the title.
 
 | Piece | File |
 | --- | --- |
 | Pixel wordmark | `components/pixel.tsx` (`PixelWordmark`) |
 | Open Graph lockup | `app/opengraph-image.tsx` |
-| Home stage | `components/home-view.tsx` |
-| Download | `components/download-orb.tsx`, `lib/site.ts` |
+| Home stage | `components/home-view.tsx`, `stage-atmosphere.tsx`, `hud-frame.tsx` |
+| Download key | `components/download-orb.tsx`, `lib/site.ts` |
+| Inner pages | `components/doc-shell.tsx` |
+| Tokens / HUD CSS | `app/globals.css` |
 | Release integrity | `lib/download-release.json`, `scripts/verify-download.mjs` |
 | Update channel | `public/releases/latest.json`, `docs/update-channel.md` |
 

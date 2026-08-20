@@ -19,8 +19,8 @@ export default function PrivacyPage() {
       <div className="flex flex-col gap-5 text-pretty">
         <p className="doc-body">
           Z0 runs locally on your Mac. It does not operate a Z0 account
-          service, use advertising or analytics trackers, sell personal data,
-          or upload worlds, logs, or diagnostics to Z0 servers.
+          service, use advertising trackers, sell personal data, or upload
+          worlds, logs, or diagnostics to Z0 servers.
         </p>
         <p className="doc-body">
           Overlay backups and redacted diagnostic files stay on this Mac under{" "}
@@ -56,8 +56,11 @@ export default function PrivacyPage() {
           their own privacy terms when their services are used.
         </p>
         <p className="doc-body">
-          This website is a static product page. It does not set analytics
-          cookies. The download is a zip of Z0.app served from the same host.
+          This website is a static product page. It uses Vercel Web Analytics
+          and Speed Insights for aggregated page views, download events, and
+          Core Web Vitals. Those products do not set cookies, do not use
+          advertising identifiers, and do not receive worlds, logs, or account
+          data. The download is a zip of Z0.app served from the same host.
         </p>
         <p className="doc-body">
           Privacy questions or deletion help: <PublicContact />

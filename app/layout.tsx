@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { VercelInsights } from "@/components/vercel-insights";
 import { site } from "@/lib/site";
 
 import "./globals.css";
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteHeader />
           {children}
           <SiteFooter />
+          <VercelInsights />
         </ThemeProvider>
       </body>
     </html>

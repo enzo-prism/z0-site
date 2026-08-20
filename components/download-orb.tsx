@@ -1,3 +1,7 @@
+"use client";
+
+import { track } from "@vercel/analytics";
+
 import { AppleMark } from "@/components/apple-mark";
 import { PixelChevron } from "@/components/pixel";
 import { site } from "@/lib/site";
@@ -18,6 +22,9 @@ export function DownloadKey({
       download={site.download.filename}
       className={cn("download-key", compact && "download-key-compact", className)}
       aria-describedby={titleId ? "download-meta download-handoff" : undefined}
+      onClick={() => {
+        track("Download", { version: site.version });
+      }}
     >
       <span className="flex items-center gap-2.5">
         <AppleMark />

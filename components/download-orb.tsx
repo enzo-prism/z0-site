@@ -1,3 +1,4 @@
+import { AppleMark } from "@/components/apple-mark";
 import { PixelChevron } from "@/components/pixel";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -18,7 +19,10 @@ export function DownloadKey({
       className={cn("download-key", compact && "download-key-compact", className)}
       aria-describedby={titleId ? "download-meta download-handoff" : undefined}
     >
-      <span id={titleId}>Download</span>
+      <span className="flex items-center gap-2.5">
+        <AppleMark />
+        <span id={titleId}>Download</span>
+      </span>
       <PixelChevron />
     </a>
   );

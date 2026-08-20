@@ -11,6 +11,7 @@ export const site = {
   tagline: "Mac companion for official Technic",
   description:
     "Z0 0.1.2 tunes official Technic + Tekkit 2, then hands Play to Technic. Independent direct launch is planned and remains disabled pending AppID approval.",
+  metaDescription: "Opens Technic. You press Play.",
   support:
     "The current release hands Play to Technic. Direct launch is not enabled.",
   url:

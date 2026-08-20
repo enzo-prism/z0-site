@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Help",
-  description: "Short setup and diagnostic help for Z0, official Technic, and Tekkit 2.",
+  description: "Tekkit, Java, Play.",
 };
 
 export default function HelpPage() {

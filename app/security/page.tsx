@@ -5,7 +5,7 @@ import { PublicContact } from "@/components/public-contact";
 
 export const metadata: Metadata = {
   title: "Security",
-  description: "Security policy and private vulnerability reporting for Z0.",
+  description: "Report privately.",
 };
 
 export default function SecurityPage() {

@@ -5,9 +5,8 @@ import { DocShell } from "@/components/doc-shell";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Independent launcher",
-  description:
-    "How Z0 plans to authenticate, verify ownership, and launch Minecraft: Java Edition directly on macOS.",
+  title: "Launcher",
+  description: "Not enabled.",
 };
 
 export default function LauncherPage() {

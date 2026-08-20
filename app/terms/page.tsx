@@ -5,7 +5,7 @@ import { PublicContact } from "@/components/public-contact";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "Terms for downloading and using Z0.",
+  description: "Personal license.",
 };
 
 export default function TermsPage() {

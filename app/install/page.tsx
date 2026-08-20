@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Install",
-  description: "Install Z0 and prepare official Technic with Tekkit 2 on Apple Silicon Mac.",
+  description: "Put Z0 on this Mac.",
 };
 
 const steps = [

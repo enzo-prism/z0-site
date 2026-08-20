@@ -6,8 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description:
-    "How Z0 handles local files, Microsoft sign-in, Minecraft entitlement data, and diagnostics.",
+  description: "Runs locally.",
 };
 
 export default function PrivacyPage() {

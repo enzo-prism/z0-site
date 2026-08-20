@@ -6,8 +6,8 @@ import { DownloadKey } from "@/components/download-orb";
 import { requirements, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `Release notes ${site.version}`,
-  description: `What is included in Z0 ${site.version} for Apple Silicon Mac.`,
+  title: "Notes",
+  description: `Z0 ${site.version}.`,
 };
 
 export default function ReleaseNotesPage() {

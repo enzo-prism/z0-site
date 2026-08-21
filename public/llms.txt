@@ -1,9 +1,9 @@
 # Z0
 
-> Z0 is an independent native macOS product. The current 0.1.2 release tunes official Technic + Tekkit 2 and hands Play to Technic. Direct Minecraft: Java Edition launch is planned but remains disabled until Z0's AppID is approved.
+> Z0 is an independent native macOS product. The current 0.1.3 release prepares official Technic + Tekkit 2, preserves a private Last Check across relaunches, and hands Play to Technic. Direct Minecraft: Java Edition launch is planned but remains disabled until Z0's AppID is approved.
 
-- Current download: /downloads/Z0-0.1.2-arm64-notarized.zip
-- SHA-256: /downloads/Z0-0.1.2-arm64-notarized.sha256
+- Current download: /downloads/Z0-0.1.3-arm64-notarized.zip
+- SHA-256: /downloads/Z0-0.1.3-arm64-notarized.sha256
 - Independent launcher plan: /launcher
 - Privacy: /privacy
 - Terms: /terms

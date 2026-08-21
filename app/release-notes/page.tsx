@@ -15,16 +15,16 @@ export default function ReleaseNotesPage() {
     <DocShell
       kicker={`Stage 1 · macOS · build ${site.build}`}
       title={`Z0 ${site.version}`}
-      intro="Z0 prepares reversible settings and opens official Technic. You select Tekkit 2 and press Play there. Z0 0.1.2 does not launch Minecraft; independent direct launch remains disabled pending AppID approval."
+      intro="Z0 prepares reversible settings and opens official Technic. You select Tekkit 2 and press Play there. Z0 0.1.3 does not launch Minecraft; independent direct launch remains disabled pending AppID approval."
     >
       <section aria-labelledby="included-title" className="doc-section">
         <h2 id="included-title" className="doc-h2">Included</h2>
         <ul className="space-y-2 text-[0.9375rem] leading-[1.67] text-muted-foreground">
-          <li>Restore is now locked to the selected Tekkit 2 instance, including world backups.</li>
-          <li>Tampered paths and symlink redirects fail closed before any restore write.</li>
-          <li>Setup guidance now links directly to official Technic, Rosetta 2, and arm64 Zulu 8.</li>
-          <li>Diagnostics can be revealed or copied, and launch receipts stay private on this Mac.</li>
-          <li>A manual Check for Updates reads this verified release record only when you ask.</li>
+          <li>Last Check now reloads the newest private launch receipt when Z0 opens again.</li>
+          <li>World recovery verifies every save payload before replacement and preserves unexpected live changes.</li>
+          <li>Restore remains locked to the selected Tekkit 2 instance and leaves post-backup save files in place.</li>
+          <li>Tampered paths, corrupt backups, and symlink redirects fail closed before a restore write.</li>
+          <li>A manual Check for Updates reads the verified release record only when you ask.</li>
         </ul>
       </section>
 

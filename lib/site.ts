@@ -10,7 +10,7 @@ export const site = {
   name: "Z0",
   tagline: "Mac companion for official Technic",
   description:
-    "Z0 0.1.2 tunes official Technic + Tekkit 2, then hands Play to Technic. Independent direct launch is planned and remains disabled pending AppID approval.",
+    "Z0 0.1.3 prepares official Technic + Tekkit 2, preserves a private Last Check across relaunches, and hands Play to Technic. Independent direct launch remains disabled pending AppID approval.",
   metaDescription: "Opens Technic. You press Play.",
   support:
     "The current release hands Play to Technic. Direct launch is not enabled.",
@@ -97,7 +97,7 @@ export const features = [
   {
     icon: "app" as const,
     title: "Current Play handoff",
-    body: "Z0 0.1.2 does not download Minecraft, install the pack, or construct a launch command. Direct launch remains approval-gated.",
+    body: "Z0 0.1.3 does not download Minecraft, install the pack, or construct a launch command. Direct launch remains approval-gated.",
   },
   {
     icon: "stethoscope" as const,
@@ -118,7 +118,7 @@ export const requirements = [
 export const faqs = [
   {
     q: "Does Z0 launch Minecraft?",
-    a: "Not in Z0 0.1.2. The current release opens official Technic and watches startup. Independent direct launch remains disabled pending AppID approval.",
+    a: "Not in Z0 0.1.3. The current release opens official Technic and watches startup. Independent direct launch remains disabled pending AppID approval.",
   },
   {
     q: "Is this an official Technic or Minecraft product?",

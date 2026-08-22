@@ -1,20 +1,20 @@
 {
   "architecture": "arm64",
-  "build": 3,
+  "build": 4,
   "bundleIdentifier": "app.z0.companion",
-  "bytes": 470879,
-  "checksumFilename": "Z0-0.1.2-arm64-notarized.sha256",
-  "filename": "Z0-0.1.2-arm64-notarized.zip",
+  "bytes": 663476,
+  "checksumFilename": "Z0-0.1.3-arm64-notarized.sha256",
+  "filename": "Z0-0.1.3-arm64-notarized.zip",
   "minimumSystemVersion": "14.0",
   "notarization": {
     "stapled": true,
     "status": "accepted",
-    "submissionId": "a3046912-3a35-4311-836e-058788167f77"
+    "submissionId": "80cb17df-8795-4e97-8f91-e21751a9a7d0"
   },
-  "productSourceCommit": "f3028b5aa9ac9c015cce50974eb7106a5e198b16",
-  "releasedAt": "2026-08-19T15:55:50.000Z",
+  "productSourceCommit": "cd6a35294d6866febd54b078a6d0b02d581b77b0",
+  "releasedAt": "2026-08-21T16:59:26.000Z",
   "schemaVersion": 1,
-  "sha256": "03c570d723ade05e04ea1fbcd99bf6f00364ee6eff11636d8e02ceae0d0c8656",
+  "sha256": "2815c3fe5f8e85814125e72ac9457c48510c2cd698ef92d84359b2792ad8c424",
   "teamIdentifier": "L49MKXGVM4",
-  "version": "0.1.2"
+  "version": "0.1.3"
 }

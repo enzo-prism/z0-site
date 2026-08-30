@@ -6,6 +6,7 @@ import { PublicContact } from "@/components/public-contact";
 export const metadata: Metadata = {
   title: "Security",
   description: "Report privately.",
+  alternates: { canonical: "/security" },
 };
 
 export default function SecurityPage() {

@@ -8,10 +8,12 @@ import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function DownloadKey({
+  placement,
   compact = false,
   className,
   titleId,
 }: {
+  placement: "home" | "install" | "release-notes";
   compact?: boolean;
   className?: string;
   titleId?: string;
@@ -21,9 +23,9 @@ export function DownloadKey({
       href={site.download.href}
       download={site.download.filename}
       className={cn("download-key", compact && "download-key-compact", className)}
-      aria-describedby={titleId ? "download-meta download-handoff" : undefined}
+      aria-describedby={titleId ? "download-meta download-value download-handoff" : undefined}
       onClick={() => {
-        track("Download", { version: site.version });
+        track("Download", { version: site.version, placement });
       }}
     >
       <span className="flex items-center gap-2.5">
@@ -44,7 +46,7 @@ export function DownloadOrb() {
       className="mt-10 flex w-full flex-col items-stretch gap-3 outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:mt-12"
     >
       <div className="stage-enter" style={{ animationDelay: "720ms" }}>
-        <DownloadKey titleId="download-title" />
+        <DownloadKey placement="home" titleId="download-title" />
       </div>
       <p
         id="download-meta"
@@ -54,9 +56,16 @@ export function DownloadOrb() {
         {site.version} · {site.download.platform} · {site.download.size}
       </p>
       <p
+        id="download-value"
+        className="stage-enter-meta font-mono text-[10px] leading-4 tracking-[0.08em] text-foreground/80 uppercase"
+        style={{ animationDelay: "860ms" }}
+      >
+        Tekkit 2 · Apple Silicon · Backup + recovery
+      </p>
+      <p
         id="download-handoff"
         className="stage-enter-meta text-xs leading-[1.5] text-muted-foreground"
-        style={{ animationDelay: "880ms" }}
+        style={{ animationDelay: "920ms" }}
       >
         Opens Technic. You press Play.
       </p>

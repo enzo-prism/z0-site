@@ -35,7 +35,7 @@ function usage() {
   node scripts/import-release.mjs --preflight \\
     --source-dir /absolute/release/output \\
     --product-repo /absolute/z0/repo \\
-    --version 0.1.1 --build 2 \\
+    --version 1.2.3 --build 42 \\
     --product-commit <40-character-sha> \\
     --notary-id <submission-uuid>
 

@@ -7,6 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy",
   description: "Runs locally.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
@@ -36,15 +37,15 @@ export default function PrivacyPage() {
           tokens.
         </p>
         <p className="doc-body">
-          When approved direct launch becomes available, Microsoft will host
-          the sign-in page. Z0 will receive OAuth access and refresh tokens,
+          If an independently reviewed direct provider is approved, Microsoft
+          would host the sign-in page. Z0 would receive OAuth access and refresh tokens,
           Xbox and Minecraft service tokens, the Minecraft profile identifier
           and display name, and Minecraft: Java Edition entitlement status. Z0
           will never receive the Microsoft account password.
         </p>
         <p className="doc-body">
-          Refresh credentials will be stored only in macOS Keychain.
-          Short-lived access tokens will be kept only as needed to sign in and
+          Refresh credentials would be stored only in macOS Keychain.
+          Short-lived access tokens would be kept only as needed to sign in and
           launch. This information will be used only to authenticate the
           player, verify game ownership, and start the selected game. If
           entitlement cannot be verified, Z0 will not launch.

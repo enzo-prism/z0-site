@@ -10,15 +10,12 @@ export const site = {
   name: "Z0",
   tagline: "Mac companion for official Technic",
   description:
-    "Z0 0.1.3 prepares official Technic + Tekkit 2, preserves a private Last Check across relaunches, and hands Play to Technic. Independent direct launch remains disabled pending AppID approval.",
-  metaDescription: "Opens Technic. You press Play.",
+    `Z0 ${release.version} prepares official Technic + Tekkit 2, preserves a private Last Check across relaunches, and hands Play to Technic. Independent direct launch remains disabled behind external gates.`,
+  metaDescription:
+    "A Mac companion for official Tekkit 2 with reversible tuning, verified backups, recovery, and a safe handoff to Technic.",
   support:
     "The current release hands Play to Technic. Direct launch is not enabled.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : "http://localhost:3000"),
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://z0.prism-agents.app",
   version: release.version,
   build: release.build,
   bundleId: "app.z0.companion",
@@ -97,7 +94,7 @@ export const features = [
   {
     icon: "app" as const,
     title: "Current Play handoff",
-    body: "Z0 0.1.3 does not download Minecraft, install the pack, or construct a launch command. Direct launch remains approval-gated.",
+    body: `Z0 ${release.version} does not download Minecraft, install the pack, or construct a launch command. Direct launch remains disabled behind four external gates.`,
   },
   {
     icon: "stethoscope" as const,
@@ -118,7 +115,7 @@ export const requirements = [
 export const faqs = [
   {
     q: "Does Z0 launch Minecraft?",
-    a: "Not in Z0 0.1.3. The current release opens official Technic and watches startup. Independent direct launch remains disabled pending AppID approval.",
+    a: `Not in Z0 ${release.version}. The current release opens official Technic and watches startup. Independent direct launch remains disabled until Minecraft Services approval, Technic authorization, artifact rights, and security review all pass.`,
   },
   {
     q: "Is this an official Technic or Minecraft product?",

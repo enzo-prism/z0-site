@@ -8,6 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Install",
   description: "Put Z0 on this Mac.",
+  alternates: { canonical: "/install" },
 };
 
 const steps = [
@@ -67,7 +68,7 @@ export default function InstallPage() {
       </nav>
 
       <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-        <DownloadKey compact />
+        <DownloadKey placement="install" compact />
         <Link className="release-link inline-flex min-h-11 items-center text-sm" href="/help">
           Get help
         </Link>

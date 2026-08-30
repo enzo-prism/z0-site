@@ -7,6 +7,7 @@ import { PublicContact } from "@/components/public-contact";
 export const metadata: Metadata = {
   title: "Support",
   description: "Email.",
+  alternates: { canonical: "/support" },
 };
 
 export default function SupportPage() {

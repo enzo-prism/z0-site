@@ -5,6 +5,7 @@ Marketing site for **Z0**, a macOS companion for official Technic + Tekkit 2.
 - Next.js App Router on Vercel
 - Dark-first HUD (cool near-black). Light via `next-themes` toggle
 - Vercel Web Analytics + Speed Insights (`@vercel/analytics`, `@vercel/speed-insights`)
+- Aggregate `Download` events contain only release version and page placement; they do not identify a person or join to local app activity
 - Manifest-verified notarized ZIP at `/downloads/Z0-<version>-arm64-notarized.zip`
 - Matching checksum at `/downloads/Z0-<version>-arm64-notarized.sha256`
 - User-triggered update record at `/releases/latest.json`
@@ -24,7 +25,7 @@ The visual lockup is **z0**, not a matching-height **Z0**:
 
 Product copy, metadata, and the download filename still use **Z0**. Do not restore an uppercase 7×7 Z in the wordmark.
 
-The homepage is a dark HUD stage: dotted grid, corner brackets, LED-matrix wordmark boot, and one 2px download key. Visible type is labels only (`STAGE 1`, version/platform readout, Technic handoff). Marketing copy stays in `sr-only`, link labels, and inner pages. Layout is built for iPhone safe areas, 44px tap targets, and generous responsive whitespace. Do not add a feature grid, FAQ, or terminal mock to the home stage.
+The homepage is a dark HUD stage: dotted grid, corner brackets, LED-matrix wordmark boot, and one 2px download key. Visible type stays label-like (`STAGE 1`, version/platform, the Tekkit 2 + Apple Silicon + recovery value line, and the Technic handoff). Longer marketing copy stays in `sr-only`, link labels, and inner pages. Layout is built for iPhone safe areas, 44px tap targets, and generous responsive whitespace. Do not add a feature grid, FAQ, or terminal mock to the home stage.
 
 Inner pages are a manual (`components/doc-shell.tsx`): mono kicker, medium-weight title, hairline rules. The header already carries the wordmark — do not duplicate it under the title.
 
@@ -38,6 +39,8 @@ Inner pages are a manual (`components/doc-shell.tsx`): mono kicker, medium-weigh
 | Tokens / HUD CSS | `app/globals.css` |
 | Release integrity | `lib/download-release.json`, `scripts/verify-download.mjs` |
 | Update channel | `public/releases/latest.json`, `docs/update-channel.md` |
+| Measurement boundary | `docs/measurement.md` |
+| Production gate | `docs/release-control.md` |
 
 ## Review contact seam
 
@@ -71,11 +74,12 @@ pnpm dev
 
 ## Production
 
-`main` auto-deploys on Vercel (team `enzo-design-prisms-projects`, project `z0-site`). To ship from this tree:
+`main` auto-deploys on Vercel (team `enzo-design-prisms-projects`, project `z0-site`). Production changes must enter through a pull request after the required `verify` check passes. Run the same gate locally with:
 
 ```sh
-pnpm build
-vercel deploy --prod --yes --scope enzo-design-prisms-projects
+bash scripts/cloud-check.sh
 ```
+
+Do not use a direct production deploy to bypass the protected branch. An emergency promotion or rollback requires an exact owner-approved deployment and live readback.
 
 Z0 is not affiliated with Mojang, Microsoft, Technic, or Forge.

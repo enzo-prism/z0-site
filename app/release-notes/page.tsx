@@ -8,6 +8,7 @@ import { requirements, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Notes",
   description: `Z0 ${site.version}.`,
+  alternates: { canonical: "/release-notes" },
 };
 
 export default function ReleaseNotesPage() {
@@ -15,7 +16,7 @@ export default function ReleaseNotesPage() {
     <DocShell
       kicker={`Stage 1 · macOS · build ${site.build}`}
       title={`Z0 ${site.version}`}
-      intro="Z0 prepares reversible settings and opens official Technic. You select Tekkit 2 and press Play there. Z0 0.1.3 does not launch Minecraft; independent direct launch remains disabled pending AppID approval."
+      intro={`Z0 prepares reversible settings and opens official Technic. You select Tekkit 2 and press Play there. Z0 ${site.version} does not launch Minecraft; independent direct launch remains disabled behind external gates.`}
     >
       <section aria-labelledby="included-title" className="doc-section">
         <h2 id="included-title" className="doc-h2">Included</h2>
@@ -51,7 +52,7 @@ export default function ReleaseNotesPage() {
             {site.download.platform} · {site.download.size}
           </p>
         </div>
-        <DownloadKey compact />
+        <DownloadKey placement="release-notes" compact />
         <div className="space-y-2 text-xs leading-5 text-muted-foreground">
           <p>Developer ID signed, notarized, and stapled for macOS.</p>
           <p>

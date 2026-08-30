@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "check": "pnpm verify:download && pnpm lint && pnpm typecheck && pnpm build",
     "verify:download": "node scripts/verify-download.mjs",
     "release:import": "node scripts/import-release.mjs"

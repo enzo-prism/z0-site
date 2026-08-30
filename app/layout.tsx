@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: site.metaDescription,
+  alternates: {
+    canonical: "/",
+  },
   applicationName: site.name,
   creator: "Lorenzo Quaid Sison",
   publisher: "Lorenzo Quaid Sison",

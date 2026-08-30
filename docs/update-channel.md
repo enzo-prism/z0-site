@@ -27,8 +27,8 @@ The release output must contain the notarized ZIP, its exact checksum sidecar, t
 pnpm release:import -- --preflight \
   --source-dir /absolute/path/to/release-output \
   --product-repo /absolute/path/to/z0 \
-  --version 0.1.1 \
-  --build 2 \
+  --version 1.2.3 \
+  --build 42 \
   --product-commit 40-character-lowercase-commit \
   --notary-id lowercase-submission-uuid
 ```
@@ -39,8 +39,8 @@ After review, apply the exact same values with the explicit import confirmation:
 Z0_RELEASE_IMPORT_CONFIRM=IMPORT pnpm release:import -- --apply \
   --source-dir /absolute/path/to/release-output \
   --product-repo /absolute/path/to/z0 \
-  --version 0.1.1 \
-  --build 2 \
+  --version 1.2.3 \
+  --build 42 \
   --product-commit 40-character-lowercase-commit \
   --notary-id lowercase-submission-uuid
 ```
@@ -50,9 +50,7 @@ The importer validates the source commit, accepted notary receipt, ZIP paths, ch
 Always finish with:
 
 ```sh
-pnpm verify:download
-pnpm lint
-pnpm build
+pnpm check
 git diff --check
 ```
 

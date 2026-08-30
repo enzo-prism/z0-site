@@ -9,6 +9,7 @@ const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "..");
 const manifestPath = join(repositoryRoot, "lib", "download-release.json");
 const latestPath = join(repositoryRoot, "public", "releases", "latest.json");
+const llmsPath = join(repositoryRoot, "public", "llms.txt");
 const downloadsDirectory = join(repositoryRoot, "public", "downloads");
 
 function fail(message) {
@@ -182,6 +183,19 @@ function validateLatest(rawLatest, manifest) {
   return latest;
 }
 
+function validateLlms(rawLlms, manifest) {
+  const requiredReleaseReferences = [
+    `current ${manifest.version} release`,
+    `/downloads/${manifest.filename}`,
+    `/downloads/${manifest.checksumFilename}`,
+  ];
+  for (const reference of requiredReleaseReferences) {
+    if (!rawLlms.includes(reference)) {
+      fail(`llms.txt must include the active release reference ${reference}`);
+    }
+  }
+}
+
 function findEndOfCentralDirectory(archive) {
   const signature = 0x06054b50;
   const minimumOffset = Math.max(0, archive.length - 65_557);
@@ -284,6 +298,7 @@ function validateAppBundle(entries) {
 async function main() {
   const manifest = validateManifest(await readFile(manifestPath, "utf8"));
   validateLatest(await readFile(latestPath, "utf8"), manifest);
+  validateLlms(await readFile(llmsPath, "utf8"), manifest);
   const archivePath = join(downloadsDirectory, manifest.filename);
   const checksumPath = join(downloadsDirectory, manifest.checksumFilename);
   const archive = await readFile(archivePath);

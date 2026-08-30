@@ -7,6 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Help",
   description: "Tekkit, Java, Play.",
+  alternates: { canonical: "/help" },
 };
 
 export default function HelpPage() {
@@ -37,7 +38,7 @@ export default function HelpPage() {
       <section aria-labelledby="play-title" className="doc-section">
         <h2 id="play-title" className="doc-h2">Where Play happens</h2>
         <p className="doc-body">
-          Z0 0.1.3 does not launch Minecraft or build a game command. It makes a verified backup, applies the reversible Balanced overlay, and opens official Technic. Select Tekkit 2 and press Play in Technic. Independent direct launch remains disabled pending AppID approval.
+          Z0 {site.version} does not launch Minecraft or build a game command. It makes a verified backup, applies the reversible Balanced overlay, and opens official Technic. Select Tekkit 2 and press Play in Technic. Independent direct launch remains disabled until Minecraft Services approval, Technic authorization, artifact rights, and security review all pass.
         </p>
       </section>
 

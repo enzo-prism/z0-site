@@ -6,29 +6,42 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Launcher",
-  description: "Not enabled.",
+  description: "A gated Stage 2 decision, not an enabled product.",
+  alternates: { canonical: "/launcher" },
+  robots: { index: false, follow: true },
 };
 
 export default function LauncherPage() {
   return (
     <DocShell
-      kicker="Independent · native · macOS"
-      title="Direct launch, without another launcher"
-      intro="Z0 is building an independent native macOS launcher. A player will select a compatible modpack and start Minecraft: Java Edition directly from Z0."
+      kicker="Stage 2 · gated · not enabled"
+      title="Direct launch remains conditional"
+      intro="Z0 ships today as a native macOS companion for official Technic and Tekkit 2. One-click Play is an option only after platform access, provider rights, security review, and user evidence are all green."
     >
+      <section aria-labelledby="provider-order-title" className="doc-section">
+        <h2 id="provider-order-title" className="doc-h2">
+          Provider order
+        </h2>
+        <ol className="space-y-2 text-[0.9375rem] leading-[1.67] text-muted-foreground">
+          <li>1. Keep the current official-Technic handoff.</li>
+          <li>2. Prefer a Technic-owned headless bridge if Technic gives written approval.</li>
+          <li>3. Consider an independently reviewed direct provider only if every external gate passes.</li>
+        </ol>
+      </section>
+
       <section aria-labelledby="microsoft-access-title" className="doc-section">
         <h2 id="microsoft-access-title" className="doc-h2">
           Microsoft access
         </h2>
         <p className="doc-body">
-          Z0 will use Microsoft&apos;s system-browser sign-in and OAuth 2.0
-          Authorization Code with PKCE as a public native client, with no
-          client secret. It will use Minecraft Services only to authenticate
-          the player, verify ownership of Minecraft: Java Edition, and retrieve
-          the profile required to launch.
+          If an independent provider is approved, Z0 would use its own public
+          native Microsoft registration, the system browser, and OAuth 2.0
+          Authorization Code with PKCE. It would have no client secret and
+          would use Minecraft Services only for player authentication,
+          entitlement, and the profile required to launch.
         </p>
         <p className="doc-body">
-          Z0 never asks for or sees the player&apos;s Microsoft password. It
+          Z0 would never ask for or see the player&apos;s Microsoft password. It
           never bypasses authentication, ownership, license, parental, or
           safety checks. If ownership cannot be verified, Z0 does not launch.
         </p>
@@ -39,10 +52,11 @@ export default function LauncherPage() {
           Game files
         </h2>
         <p className="doc-body">
-          Minecraft files will come from Mojang or Microsoft services after a
-          successful entitlement check. Z0 does not redistribute Minecraft.
-          Third-party modpack files remain subject to their own licenses and
-          distribution permissions.
+          Any independent provider would obtain Minecraft files from Mojang or
+          Microsoft services only after a successful entitlement check. Z0
+          does not redistribute Minecraft. Third-party files would remain
+          disabled until every artifact has an approved source, digest,
+          license, and distribution basis.
         </p>
       </section>
 
@@ -55,9 +69,11 @@ export default function LauncherPage() {
           Approval gate is closed
         </h2>
         <p className="doc-body">
-          Direct launch remains disabled until Z0&apos;s AppID is approved. The
-          currently downloadable Z0 {site.version} build {site.build} release
-          still prepares Tekkit 2 and hands Play to official Technic.
+          Z0&apos;s Minecraft Services registration is not approved, Technic has
+          not authorized a bridge, artifact rights are incomplete, and the
+          named Stage 2 security review has not passed. The downloadable Z0 {" "}
+          {site.version} build {site.build} therefore prepares Tekkit 2 and
+          hands Play to official Technic.
         </p>
       </section>
 

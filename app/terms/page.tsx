@@ -6,6 +6,7 @@ import { PublicContact } from "@/components/public-contact";
 export const metadata: Metadata = {
   title: "Terms",
   description: "Personal license.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

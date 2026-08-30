@@ -17,7 +17,7 @@ export function HomeView() {
             <p className="sr-only">{site.description}</p>
             <HudFrame>
               <div className="flex w-min max-w-full flex-col [--cell:14px] sm:[--cell:24px] lg:[--cell:28px]">
-                <p className="doc-kicker mb-8">Stage 1</p>
+                <p className="doc-kicker mb-8">Stage 1 · Tekkit 2 · Mac</p>
                 <PixelWordmark
                   pixel={18}
                   boot

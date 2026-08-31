@@ -22,17 +22,13 @@ const compiled = ts.transpileModule(source, {
 }).outputText;
 
 function loadToggle({ mounted, resolvedTheme }) {
-  const effects = [];
-  const mountedUpdates = [];
+  let snapshots;
   const themeUpdates = [];
   const react = {
     ...require("react"),
-    useEffect(effect, dependencies) {
-      effects.push({ dependencies, effect });
-    },
-    useState(initialValue) {
-      assert.equal(initialValue, false);
-      return [mounted, (value) => mountedUpdates.push(value)];
+    useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot) {
+      snapshots = { subscribe, getClientSnapshot, getServerSnapshot };
+      return mounted;
     },
   };
   const localRequire = (specifier) => {
@@ -56,10 +52,12 @@ function loadToggle({ mounted, resolvedTheme }) {
   );
 
   const element = componentModule.exports.ThemeToggle();
-  assert.equal(effects.length, 1);
-  assert.deepEqual(effects[0].dependencies, []);
+  assert.equal(typeof snapshots?.subscribe, "function");
+  assert.equal(typeof snapshots?.subscribe(), "function");
+  assert.equal(snapshots?.getServerSnapshot(), false);
+  assert.equal(snapshots?.getClientSnapshot(), true);
 
-  return { effects, element, mountedUpdates, themeUpdates };
+  return { element, themeUpdates };
 }
 
 for (const resolvedTheme of [undefined, "dark", "light"]) {
@@ -67,8 +65,6 @@ for (const resolvedTheme of [undefined, "dark", "light"]) {
   assert.equal(result.element.props["aria-label"], "Toggle theme");
   assert.equal(result.element.props.disabled, true);
   assert.equal(result.element.props.children, "·");
-  result.effects[0].effect();
-  assert.deepEqual(result.mountedUpdates, [true]);
 }
 
 const dark = loadToggle({ mounted: true, resolvedTheme: "dark" });

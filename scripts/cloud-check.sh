@@ -11,5 +11,6 @@ fi
 
 pnpm install --frozen-lockfile
 pnpm verify:download
+pnpm verify:theme-toggle
 pnpm lint
 pnpm build
